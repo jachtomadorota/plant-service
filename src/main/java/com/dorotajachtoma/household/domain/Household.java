@@ -25,15 +25,29 @@ public class Household {
     @Column(name = "ADDRESS", nullable = false)
     private String address;
 
-    @Column(name = "PHONE_NUMBER", nullable = false)
-    private String phoneNumber;
-
-    @Column(name = "EMAIL", nullable = false)
-    private String email;
-
     @Column(name = "CREATED_AT", nullable = false)
     private LocalDateTime createdAt;
 
     @Column(name = "UPDATED_AT", nullable = true)
     private LocalDateTime updatedAt;
+
+    public String getId() {
+        return id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public LocalDateTime getCreatedAt() {
+        return createdAt;
+    }
+
+    public LocalDateTime getUpdatedAt() {
+        return updatedAt;
+    }
 }
