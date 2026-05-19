@@ -9,6 +9,7 @@ import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.JoinTable;
 import jakarta.persistence.OneToMany;
+import jakarta.persistence.Version;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -47,6 +48,10 @@ public class Plant {
 
     @Column(name = "NOTES_TXT", nullable = true)
     private String notes;
+
+    @Version
+    @Column(name = "VERSION", nullable = false)
+    private Long version;
 
 
 
