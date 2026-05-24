@@ -37,17 +37,8 @@ public class Plant {
                referencedColumnName = "ID"))
     private Owner owner;
 
-    @Column(name = "PURCHASE_TIMESTAMP", nullable = false)
-    private LocalDateTime purchaseTimestamp;
-
-    @Column(name = "PLANTING_TIMESTAMP", nullable = false)
-    private LocalDateTime plantingTimestamp;
-
     @Column(name = "STATUS", nullable = false)
     private PlantStatus status;
-
-    @Column(name = "NOTES_TXT", nullable = true)
-    private String notes;
 
     @Version
     @Column(name = "VERSION", nullable = false)
