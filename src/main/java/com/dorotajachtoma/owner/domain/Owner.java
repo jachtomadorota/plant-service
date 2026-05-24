@@ -47,7 +47,7 @@ public class Owner {
     @Column(name = "CREATED_AT", nullable = false)
     private LocalDateTime createdAt;
 
-    @Column(name = "UPDATED_AT", nullable = true)
+    @Column(name = "UPDATED_AT")
     private LocalDateTime updatedAt;
 
 }
