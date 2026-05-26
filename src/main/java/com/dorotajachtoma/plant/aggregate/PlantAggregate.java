@@ -1,10 +1,16 @@
 package com.dorotajachtoma.plant.aggregate;
 
-import com.dorotajachtoma.plant.entities.Plant;
-import com.dorotajachtoma.plant.entities.PlantDetails;
+import com.dorotajachtoma.plant.value_objects.PlantId;
+import com.dorotajachtoma.plant.value_objects.PlantStatus;
 
-public record PlantAggregate (Plant plant,
-                              PlantDetails plantDetails) {
+import java.util.UUID;
+
+public record PlantAggregate (
+        PlantId plantId,
+        String plantName,
+        PlantStatus plantStatus,
+        UUID ownerId
+) {
 
 
 }
