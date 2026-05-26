@@ -1,4 +1,4 @@
-package com.dorotajachtoma.plant.domain;
+package com.dorotajachtoma.plant.entities;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.DiscriminatorValue;

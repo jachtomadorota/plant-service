@@ -1,4 +1,4 @@
-package com.dorotajachtoma.plant.domain;
+package com.dorotajachtoma.plant.value_objects;
 
 public enum PlantStatus {
 
