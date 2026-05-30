@@ -12,19 +12,17 @@ services:
     container_name: postgres
     image: postgres
     environment:
-      POSTGRES_USER: USERNAME
-      POSTGRES_PASSWORD: PASSWORD
-      PGDATA: /data/postgres
-      POSTGRES_DB: bank
-    volumes:
-      - db:/data/postgres
+      BUILD_ENV: docker
+      POSTGRES_DB: ${POSTGRES_DB}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+      POSTGRES_USER: ${POSTGRES_USER}
     ports:
       - "5332:5432"
     networks:
       - db
-    restart: unless-stopped
+    restart: always
     healthcheck:
-      test: [ "CMD-SHELL", "pg_isready -d postgres" ]
+      test: ["CMD-SHELL", "su -c 'pg_isready -U ${POSTGRES_USER} -h localhost' postgres -d ${POSTGRES_DB}"]
       interval: 30s
       timeout: 10s
       retries: 5

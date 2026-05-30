@@ -10,7 +10,7 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.JoinTable;
-import jakarta.persistence.OneToMany;
+import jakarta.persistence.ManyToOne;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -37,9 +37,9 @@ public class Collection {
 
     @Enumerated(EnumType.STRING)
     @Column(name = "STATUS", nullable = false)
-    private String status;
+    private CollectionStatus status;
 
-    @OneToMany
+    @ManyToOne
     @JoinTable(joinColumns = @JoinColumn(name = "OWNER_ID", referencedColumnName = "ID"))
     private Owner owner;
 
@@ -49,7 +49,7 @@ public class Collection {
     @Column(name = "UPDATED_AT")
     private LocalDateTime updatedAt;
 
-    public void setStatus(String status) {
-        this.status = CollectionStatus.ACTIVE.name();
+    public void setStatus(CollectionStatus status) {
+        this.status = CollectionStatus.ACTIVE;
     }
 }
