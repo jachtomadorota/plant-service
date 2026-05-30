@@ -1,6 +1,7 @@
-package com.dorotajachtoma.plant.domain;
+package com.dorotajachtoma.plant.entities;
 
 import com.dorotajachtoma.owner.domain.Owner;
+import com.dorotajachtoma.plant.value_objects.PlantStatus;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -15,7 +16,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import java.time.LocalDateTime;
+import java.util.UUID;
 
 @Getter
 @Setter
@@ -27,7 +28,7 @@ public class Plant {
     @Id
     @Column(name = "ID")
     @GeneratedValue(strategy = GenerationType.UUID)
-    private String id;
+    private UUID id;
 
     @Column(name = "PLANT_NAME", nullable = false)
     private String plantName;
@@ -37,17 +38,8 @@ public class Plant {
                referencedColumnName = "ID"))
     private Owner owner;
 
-    @Column(name = "PURCHASE_TIMESTAMP", nullable = false)
-    private LocalDateTime purchaseTimestamp;
-
-    @Column(name = "PLANTING_TIMESTAMP", nullable = false)
-    private LocalDateTime plantingTimestamp;
-
     @Column(name = "STATUS", nullable = false)
     private PlantStatus status;
-
-    @Column(name = "NOTES_TXT", nullable = true)
-    private String notes;
 
     @Version
     @Column(name = "VERSION", nullable = false)
